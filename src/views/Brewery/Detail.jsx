@@ -1,18 +1,15 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import BreweryDetailContainer from '../../modules/Brewery/Detail/containers/BreweryDetailContainer';
+import {Grid} from "@mui/material";
 
 export default function BreweryDetail() {
-  const { id } = useParams();
-
   return (
     <main>
-      <h1>Brewery {id}</h1>
-      <p>Brewtown, Oregon 12345</p>
-      <p>United States</p>
-      <p>8005551234</p>
-      <p>
-        <a href='https://example.com'>View Website</a>
-      </p>
-      <Link to='/breweries'>Back to Breweries</Link>
+        <Grid container flexDirection="column" alignItems="center" padding={"2rem"}>      
+        <BreweryDetailContainer/>
+         <Link to='/breweries'>Back to Breweries</Link>
+      </Grid>
+
     </main>
   );
 }

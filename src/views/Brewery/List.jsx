@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
+import BreweryListContainer from '../../modules/Brewery/List/containers/BrewerListContainer';
+import { Grid, Typography } from '@mui/material';
 
 export default function BreweryList() {
   return (
     <main>
-      <h1>Brewery Catalog</h1>
-      <form>
+      {/* <form>
         <input type='text' name='search' placeholder='Find a brewery' />
         <button type='submit'>Search</button>
         <button type='reset'>Reset</button>
@@ -13,7 +13,11 @@ export default function BreweryList() {
         <li>
           <Link to='/breweries/1'>Brewery 1</Link> - Brewtown, OR
         </li>
-      </ul>
+      </ul> */}
+      <Grid container flexDirection="column" alignItems="center">
+        <Typography variant='h2'>Brewery Catalog</Typography>
+        <BreweryListContainer />
+      </Grid>
     </main>
   );
 }

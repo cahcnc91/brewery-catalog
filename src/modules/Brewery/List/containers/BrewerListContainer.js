@@ -1,9 +1,11 @@
 import { CircularProgress, Alert, AlertTitle } from "@mui/material";
 import BreweryList from "../components/BreweryList";
 import useFetchData from "../../../common/hooks/useFetchData";
+import { Fragment } from "react";
+import BreweryListSearch from "../components/BreweryListSearch";
 
 const BreweryListContainer = () => {
-  const { data, error, loading } = useFetchData("https://api.openbrewerydb.org/breweries");
+  const { data, error, loading } = useFetchData("https://api.openbrewerydb.org/breweries?per_page=10");
 
   if (loading) return <CircularProgress />;
 
@@ -17,7 +19,12 @@ const BreweryListContainer = () => {
   }
 
   if (data) {
-    return <BreweryList breweryList={data} />;
+    return (
+      <Fragment>
+        <BreweryListSearch />
+        <BreweryList breweryList={data} />;
+      </Fragment>
+    );
   }
 };
 

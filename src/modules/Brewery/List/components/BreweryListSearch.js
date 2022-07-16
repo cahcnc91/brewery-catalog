@@ -3,8 +3,9 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
+import { BREWERY_BASE_URL } from "../../consts";
 
-const BreweryListSearch = () => {
+const BreweryListSearch = ({ setUrl }) => {
   const [input, setInput] = useState("");
 
   const handleSetInput = (e) => {
@@ -12,7 +13,8 @@ const BreweryListSearch = () => {
   };
 
   const handleSubmit = (e) => {
-    console.log("hereee");
+    const nextUrl = input ? `${BREWERY_BASE_URL}/search?query=${input}&per_page=10` : `${BREWERY_BASE_URL}?per_page=10`;
+    setUrl(nextUrl);
   };
 
   const handleonKeyPress = (e) => {

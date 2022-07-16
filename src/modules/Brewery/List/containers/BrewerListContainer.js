@@ -3,9 +3,10 @@ import BreweryList from "../components/BreweryList";
 import useFetchData from "../../../common/hooks/useFetchData";
 import { Fragment } from "react";
 import BreweryListSearch from "../components/BreweryListSearch";
+import { BREWERY_BASE_URL } from "../../consts";
 
 const BreweryListContainer = () => {
-  const { data, error, loading } = useFetchData("https://api.openbrewerydb.org/breweries?per_page=10");
+  const { data, error, loading, setUrl } = useFetchData(`${BREWERY_BASE_URL}?per_page=10`);
 
   if (loading) return <CircularProgress />;
 
@@ -21,7 +22,7 @@ const BreweryListContainer = () => {
   if (data) {
     return (
       <Fragment>
-        <BreweryListSearch />
+        <BreweryListSearch setUrl={setUrl} />
         <BreweryList breweryList={data} />;
       </Fragment>
     );

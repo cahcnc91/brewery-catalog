@@ -23,7 +23,7 @@ const BreweryListContainer = () => {
     return (
       <Fragment>
         <BreweryListSearch setUrl={setUrl} />
-        <BreweryList breweryList={data} />;
+        <BreweryList breweryList={data} />
       </Fragment>
     );
   }
